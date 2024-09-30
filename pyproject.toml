@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = "FastAPI plane price prediction service"
+authors = ["Vladimir Klepov <v.klepov@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.115.0"
+uvicorn = "^0.31.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6.8"
+pre-commit = "^3.8.0"
+
+[build-system]
+package-mode = false
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

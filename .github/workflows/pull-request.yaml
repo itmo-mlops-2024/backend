@@ -1,0 +1,29 @@
+name: Test PR
+on: pull_request
+
+jobs:
+  warm_cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepare-env
+      - name: Install dependencies
+        run: poetry install
+  check_lockfiles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/prepare-env
+      - name: Check lockfiles
+        run: poetry check --lock
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # lint
+      - uses: chartboost/ruff-action@v1
+      # check formatting
+      - uses: chartboost/ruff-action@v1
+        with:
+          args: format --check
+          
