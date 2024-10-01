@@ -16,8 +16,11 @@ jobs:
           target: backend
       - name: Deploy
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          MLFLOW_TRACKING_URI: "http://${{ secrets.INFRA_HOST }}:9000"
         with:
           host: ${{ secrets.INFRA_HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
+          envs: MLFLOW_TRACKING_URI
           script: cd backend && docker compose up -d

@@ -10,6 +10,10 @@ readme = "README.md"
 python = "^3.10"
 fastapi = "^0.115.0"
 uvicorn = "^0.31.0"
+mlflow = "^2.16.2"
+pandas = "^2.2.3"
+python-dotenv = "^1.0.1"
+catboost = "^1.2.7"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.6.8"
