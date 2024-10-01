@@ -1,0 +1,23 @@
+name: Deploy
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Move files to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.INFRA_HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          source: docker-compose.yaml
+          target: backend
+      - name: Deploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.INFRA_HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: cd backend && docker compose up -d
