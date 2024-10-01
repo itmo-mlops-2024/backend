@@ -90,5 +90,5 @@ target/
 .mypy_cache/
 
 .venv
-catboost_info
 .ruff_cache
+requirements.txt
