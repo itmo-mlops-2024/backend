@@ -1,5 +1,7 @@
 services:
   backend:
     image: ghcr.io/itmo-mlops-2024/backend:latest
+    environment:
+      - MLFLOW_TRACKING_URI=$MLFLOW_TRACKING_URI
     ports:
       - "8000:8000"
