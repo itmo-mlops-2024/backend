@@ -1,0 +1,5 @@
+services:
+  backend:
+    image: ghcr.io/itmo-mlops-2024/backend:latest
+    ports:
+      - "8000:8000"
