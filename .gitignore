@@ -92,3 +92,4 @@ target/
 .venv
 .ruff_cache
 requirements.txt
+mlruns
